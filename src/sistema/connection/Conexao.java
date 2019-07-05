@@ -28,6 +28,14 @@ public class Conexao {
 	        conn = DriverManager.getConnection(url, username, password);
 	 
 			status = "conexao aberta";
+			
+			
+			
+			if(conn != null ) {
+				status = ("conectado com sucesso");
+			}else {
+				status = ("não conectado");
+			}
 			}catch (SQLException e) {
 				status = e.getMessage();
 		
