@@ -8,4 +8,5 @@ public class Vistoria {
 	private String descricao;
 	private Date dataOcorrencia;
 	
+	
 }
