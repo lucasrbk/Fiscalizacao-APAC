@@ -42,16 +42,16 @@ try {
 			Connection connection = Conexao.getConnection();
 
 			 Statement simpleStatement = connection.createStatement();
-
-		/*	simpleStatement.execute(
+			 
+			simpleStatement.execute(
 					"insert into auto values " +
-							"('1', '2013-04-23', 'testeLucas', 'TesteLucas','1','2')"
+							"('1', '2013-04-23', 'testeLucas', 'TesteLucas','2147483647','1645652973')"
 					);
 
 			System.out.println("Comando de inserção realizado com sucesso.");
-	*/
+		
 			Statement s = connection.createStatement();
-
+		
 			ResultSet rs = s.executeQuery("select * from auto;");
 
 			System.out.println("Listando todos os autos do BD");
