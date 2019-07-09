@@ -1,5 +1,8 @@
 package sistema.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,6 +10,7 @@ import java.util.Date;
 import sistema.bean.Outorga;
 import sistema.bean.PedidoRenovacao;
 import sistema.bean.TermoOutorga;
+import sistema.connection.Conexao;
 
 public class Testes {
 
@@ -33,6 +37,49 @@ public class Testes {
 			System.out.println("termo de outorga na validade");
 		}
 		*/
+try {
+			
+			Connection connection = Conexao.getConnection();
+
+			 Statement simpleStatement = connection.createStatement();
+
+		/*	simpleStatement.execute(
+					"insert into auto values " +
+							"('1', '2013-04-23', 'testeLucas', 'TesteLucas','1','2')"
+					);
+
+			System.out.println("Comando de inserção realizado com sucesso.");
+	*/
+			Statement s = connection.createStatement();
+
+			ResultSet rs = s.executeQuery("select * from auto;");
+
+			System.out.println("Listando todos os autos do BD");
+			
+			
+			System.out.printf("%15s %25s %15s %40s\n", "codigo", "data_emissao", "obs", "matricula","IRREGULARIDADE_codigo","TIPO_AUTO_codigo");
+
+			while (rs.next()) {
+				String codigo = rs.getString("codigo");
+				String data = rs.getString("data_emissao");
+				String obs = rs.getString("obs");
+				String matricula = rs.getString("matricula");
+				String irregularidade = rs.getString("IRREGULARIDADE_codigo");
+				String tipo = rs.getString("TIPO_AUTO_codigo");
+				System.out.printf("%15s %25s %15s %40s\n", codigo, data, obs,
+						matricula,irregularidade,tipo);
+			}
+
+			simpleStatement.close();  // fechando os comandos SQL
+			s.close();
+			
+			connection.close();  // fechando a conexão
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		
 		
 		
