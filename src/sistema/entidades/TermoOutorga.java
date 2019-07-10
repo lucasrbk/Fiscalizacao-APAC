@@ -1,6 +1,6 @@
-package sistema.bean;
+package sistema.entidades;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class TermoOutorga {
 	private int sequencial;
@@ -8,25 +8,25 @@ public class TermoOutorga {
 	private Date dataCriacao;
 	private Date dataValidade;
 	private int statusTermo;
-	private Outorga outorga;
+	private int outorga_num_proc_apac;
 	
 	public TermoOutorga(int sequencial, String numTermo, Date dataCriacao, Date dataValidade, int statusTermo,
-			Outorga outorga) {
+			int outorga_num_proc_apac) {
 		super();
 		this.sequencial = sequencial;
 		this.numTermo = numTermo;
 		this.dataCriacao = dataCriacao;
 		this.dataValidade = dataValidade;
 		this.statusTermo = statusTermo;
-		this.outorga = outorga;
+		this.outorga_num_proc_apac = outorga_num_proc_apac;
 	}
 	
-	public Outorga getOutorga() {
-		return outorga;
+	public int getOutorga_num_proc_apac() {
+		return outorga_num_proc_apac;
 	}
 
-	public void setOutorga(Outorga outorga) {
-		this.outorga = outorga;
+	public void setOutorga_num_proc_apac(int outorga_num_proc_apac) {
+		this.outorga_num_proc_apac = outorga_num_proc_apac;
 	}
 
 	public int getSequencial() {

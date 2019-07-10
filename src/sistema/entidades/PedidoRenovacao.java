@@ -1,25 +1,25 @@
-package sistema.bean;
+package sistema.entidades;
 
 public class PedidoRenovacao {
 	private int data;
 	private String motivo;
 	private String observacao;
-	private Outorga outorga;
+	private int outorga_num_proc_apac;
 	
-	public PedidoRenovacao(int data, String motivo, String observacao, Outorga outorga) {
+	public PedidoRenovacao(int data, String motivo, String observacao, int outorga_num_proc_apac) {
 		super();
 		this.data = data;
 		this.motivo = motivo;
 		this.observacao = observacao;
-		this.outorga = outorga;
+		this.outorga_num_proc_apac = outorga_num_proc_apac;
 	}
 	
-	public Outorga getOutorga() {
-		return outorga;
+	public int getOutorga_num_proc_apac() {
+		return outorga_num_proc_apac;
 	}
 
-	public void setOutorga(Outorga outorga) {
-		this.outorga = outorga;
+	public void setOutorga_num_proc_apac(int outorga_num_proc_apac) {
+		this.outorga_num_proc_apac = outorga_num_proc_apac;
 	}
 
 	public int getData() {

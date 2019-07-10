@@ -1,6 +1,6 @@
-package sistema.bean;
+package sistema.entidades;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Auto {
 	private int codigo;

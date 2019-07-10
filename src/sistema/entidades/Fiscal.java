@@ -1,9 +1,10 @@
-package sistema.bean;
+package sistema.entidades;
 
 public class Fiscal {
 	private int cpf;
 	private String nome;
 	private String cod_apac;
+	
 	public Fiscal(int cpf, String nome, String cod_apac) {
 		super();
 		this.cpf = cpf;

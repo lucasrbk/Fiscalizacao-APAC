@@ -1,4 +1,4 @@
-package sistema.bean;
+package sistema.entidades;
 
 public class Outorga {
 	private int numProcessoApac;

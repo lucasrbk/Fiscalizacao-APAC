@@ -7,10 +7,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import sistema.bean.Outorga;
-import sistema.bean.PedidoRenovacao;
-import sistema.bean.TermoOutorga;
 import sistema.connection.Conexao;
+import sistema.entidades.Outorga;
+import sistema.entidades.PedidoRenovacao;
+import sistema.entidades.TermoOutorga;
 
 public class Testes {
 
@@ -42,14 +42,14 @@ try {
 			Connection connection = Conexao.getConnection();
 
 			 Statement simpleStatement = connection.createStatement();
-			 
+			 /*
 			simpleStatement.execute(
 					"insert into auto values " +
 							"('1', '2013-04-23', 'testeLucas', 'TesteLucas','2147483647','1645652973')"
 					);
 
 			System.out.println("Comando de inserção realizado com sucesso.");
-		
+			*/
 			Statement s = connection.createStatement();
 		
 			ResultSet rs = s.executeQuery("select * from auto;");
