@@ -1,16 +1,17 @@
 package sistema.entidades;
 
 import java.sql.Date;
+import java.time.chrono.ChronoLocalDateTime;
 
 public class TermoOutorga {
 	private int sequencial;
 	private String numTermo;
 	private Date dataCriacao;
-	private Date dataValidade;
+	private ChronoLocalDateTime<?> dataValidade;
 	private int statusTermo;
 	private int outorga_num_proc_apac;
 	
-	public TermoOutorga(int sequencial, String numTermo, Date dataCriacao, Date dataValidade, int statusTermo,
+	public TermoOutorga(int sequencial, String numTermo, Date dataCriacao, ChronoLocalDateTime<?> dataValidade, int statusTermo,
 			int outorga_num_proc_apac) {
 		super();
 		this.sequencial = sequencial;
@@ -47,10 +48,10 @@ public class TermoOutorga {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	public Date getDataValidade() {
+	public ChronoLocalDateTime<?> getDataValidade() {
 		return dataValidade;
 	}
-	public void setDataValidade(Date dataValidade) {
+	public void setDataValidade(ChronoLocalDateTime<?> dataValidade) {
 		this.dataValidade = dataValidade;
 	}
 	public int getStatusTermo() {

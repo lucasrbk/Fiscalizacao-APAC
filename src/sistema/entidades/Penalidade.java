@@ -32,6 +32,10 @@ public class Penalidade {
 		this.autoCodigo = autoCodigo;
 	}
 
+	public Penalidade() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdPenalidade() {
 		return idPenalidade;
 	}

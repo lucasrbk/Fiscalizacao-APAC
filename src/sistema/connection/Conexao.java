@@ -1,11 +1,20 @@
 package sistema.connection;
 import java.sql.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
 public class Conexao {
 
 	static String status="";
+	protected static Connection con;
 	
 	public static Connection getConnection() {
-		Connection conn=null;
+		Connection connection=null;
+		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -25,13 +34,13 @@ public class Conexao {
 	 
 	        String password = "root";      //sua senha de acesso
 	 
-	        conn = DriverManager.getConnection(url, username, password);
+	        connection = DriverManager.getConnection(url, username, password);
 	 
 			status = "conexao aberta";
 			
 			
 			
-			if(conn != null ) {
+			if(connection != null ) {
 				status = ("conectado com sucesso");
 			}else {
 				status = ("não conectado");
@@ -44,7 +53,15 @@ public class Conexao {
 		}catch (Exception e) {
 				status = e.getLocalizedMessage();
 		}
-		return conn;
+		return connection;
+	}
+	
+	public void closeConection() {
+		try{
+			Conexao.con.close();
+		} catch(Exception e) {
+			System.err.println("Erro ao fechar conexão");
+		}
 	}
 
 }
