@@ -1,0 +1,60 @@
+# CREATE USER
+CREATE USER 'ADMINISTRADOR'@'%' IDENTIFIED By 'ADM_123';
+CREATE USER 'FUNCIONARIO'@'%' IDENTIFIED By 'FUN_123';
+CREATE USER 'FISCAL'@'%' IDENTIFIED By 'FIS_123';
+CREATE USER 'USUARIO'@'%' IDENTIFIED By 'USU_123';
+
+# GRANT ADMINISTRADOR
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON *.* TO 'ADMINISTRADOR'@'%';
+
+# GRANT FUNCIONARIO
+GRANT SELECT, EXECUTE ON *.* TO 'FUNCIONARIO'@'%';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.advertencia TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.anexo TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.auto TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.cobranca TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.demanda_proc_fiscalizacao TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.condicao TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.fiscal TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.fiscal_vistoria TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.modelo_template TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.parametro TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.secao_template TO 'FUNCIONARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.status_do_termo TO 'FUNCIONARIO';
+
+
+# GRANT FISCAL
+GRANT SELECT, EXECUTE ON *.* TO 'FISCAL'@'%';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.advertencia TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.anexo TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.auto TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.fiscal_vistoria TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.irregularidade TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.irregularidade_parametro TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.modelo_template TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.outorga TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.penalidade TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.relatorio_vistoria TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.secao_template TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.termo_de_outorga TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.termo_de_outorga_irregularidade TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.tipo_auto TO 'FISCAL';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.vistoria TO 'FISCAL';
+
+
+# GRANT USUARIO
+GRANT SELECT, EXECUTE ON *.* TO 'USUARIO'@'%';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.pedido_renovacao TO 'USUARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.protocolo TO 'USUARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.recurso_adm TO 'USUARIO';
+GRANT INSERT, UPDATE, DELETE ON fiscalizacao.tipo_recurso TO 'USUARIO';
+
+
+
+# SELECT * FROM mysql.user;
+
+
+
+
+
+
