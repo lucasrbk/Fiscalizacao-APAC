@@ -41,7 +41,7 @@ public class TermoOutorgaDAO {
 			Statement stm = (Statement) Conexao.getConnection();
 			int res = stm.executeUpdate(comando);
 			if (res > 0) {
-				System.out.println("Inserido!");
+				System.out.println("buscado!");
 			} else {
 				System.err.println("Erro!");
 			}
