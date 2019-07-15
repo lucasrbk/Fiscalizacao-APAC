@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import sistema.dao.PenalidadeDAO;
+import sistema.dao.PenalidadeTabela;
+import sistema.entidades.Penalidade;
 import javax.swing.JTable;
 import java.awt.FlowLayout;
 import javax.swing.JScrollPane;
@@ -16,6 +20,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.DropMode;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class PenalidadeFrm extends JFrame {
 
@@ -36,7 +43,43 @@ public class PenalidadeFrm extends JFrame {
 	private JButton btnAlterar;
 	private JButton btnAdicionar;
 	private JButton btnSair;
-
+	private ActionListener l;
+	private static PenalidadeFrm instance;
+	private PenalidadeTabela penalidadeT;
+	
+	
+	public static PenalidadeFrm getInstance() {
+		if (instance == null) {
+			instance = new PenalidadeFrm();
+		}
+		return instance;
+	}
+	
+	public void montar_tabela(List<Penalidade> Penalidade) {
+		penalidadeT.addPenalidadeTabela_List(Penalidade);
+	}
+	
+	public void limparCampos() {
+		idPenalidade.setText("");
+		status.setText("");
+		jaCobrado.setText("");
+		valorMulta.setText("");
+		tipo.setText("");
+		dataAdiamento.setText("");
+		dataEmissao.setText("");
+		dataRecebimento.setText("");
+		penalidadeCol.setText("");
+		autoCodigo.setText("");
+		if(penalidadeT.getRowCount() == 1)
+			penalidadeT.removePenalidadeAt(0);
+		else {
+			int i = 0;
+			while(penalidadeT.getRowCount() > 0) {
+				penalidadeT.removePenalidadeAt(i);
+				i++;
+			}
+		}
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -168,7 +211,13 @@ public class PenalidadeFrm extends JFrame {
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(24, 162, 89, 23);
 		contentPane.add(btnBuscar);
-		
+		btnBuscar.addActionListener(new ActionListener(){
+			public void  actionPerformed(ActionEvent e) {
+				String id = idPenalidade.getText();
+				
+				PenalidadeDAO.getInstance().getConnection();
+				List<Penalidade> penalidadeT = PenalidadeDAO.getInstance().buscar_penalidade(id);
+			}});
 		btnExcluir = new JButton("Excluir");
 		btnExcluir.setBounds(123, 162, 89, 23);
 		contentPane.add(btnExcluir);

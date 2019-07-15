@@ -11,7 +11,7 @@ import sistema.connection.Conexao;
 import sistema.connection.SystemException;
 import sistema.entidades.Penalidade;
 
-public class PenalidadeDAO {
+public class PenalidadeDAO extends Conexao {
 		
 	
 private static final String INSERIR_PENALIDADE = "INSERT INTO fiscalizaco.penalidade (idPENALIDADE, status, ja_cobrado, descricao, valor_multa, tipo, data_adiamento, data_emissao, data_recebimento, PENALIDADEcol,AUTO_codigo)";
@@ -76,8 +76,8 @@ private static final String INSERIR_PENALIDADE = "INSERT INTO fiscalizaco.penali
 			e.printStackTrace();
 			}
 	}
-	public void buscar_penalidade(Penalidade penalidade) {
-		String buscar = "SELECT * FROM PENALIDADE WHERE "+penalidade.getIdPenalidade()+"";
+	public List<Penalidade> buscar_penalidade(String penalidade) {
+		String buscar = "SELECT * FROM PENALIDADE WHERE "+penalidade+"";
 		
 		String comando = buscar;
 		
